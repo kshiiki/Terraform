@@ -1,0 +1,9 @@
+# terraformバイナリ
+.terraform
+.terraform.lock.hcl
+
+# textファイル
+*.txt
+
+# image-builderfile
+image-builder関連.zip
