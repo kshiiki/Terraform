@@ -8,12 +8,12 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)                 # logger設定
 
 s3 = boto3.resource('s3')
-bucket_name = 'subsite-dev-feed-s3-01'        # S3バケット名を指定
-directory_name = os.environ['DIRECTORY_NAME'] # S3バケット内ディレクトリ
-trigger_file_1 = '*'            # トリガーファイル名を指定
-trigger_file_2 = '*'        # トリガーファイル名を指定
-sleep_time = int(os.environ['SLEEP_TIME'])    # SLEEP時間 (環境変数より取得)
-retry_count = int(os.environ['RETRY_COUNT'])  # リトライカウント (環境変数より取得) 
+bucket_name = 'lambda-deploy-dev-data-store-01'        # S3バケット名を指定
+directory_name = os.environ['DIRECTORY_NAME']          # S3バケット内ディレクトリ
+trigger_file_1 = 'test1.txt'                           # トリガーファイル名を指定
+trigger_file_2 = 'test2.txt'                           # トリガーファイル名を指定
+sleep_time = int(os.environ['SLEEP_TIME'])             # SLEEP時間 (環境変数より取得)
+retry_count = int(os.environ['RETRY_COUNT'])           # リトライカウント (環境変数より取得) 
 
 def lambda_handler(event, context):
     bucket = s3.Bucket(bucket_name)
